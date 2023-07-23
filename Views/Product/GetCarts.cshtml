@@ -1,0 +1,75 @@
+﻿@model List<CartVM>
+@{
+    double total = 0;
+}
+<!-- Hero start -->
+<section id="page-header" class="about-header">
+    <h2>#let's_talk</h2>
+    <p>LEAVE A MESSAGE, We love to hear from you.</p>
+</section>
+<!-- Hero End -->
+
+<section id="cart2" class="section-p1">
+    <table width="100%">
+        <thead>
+            <tr>
+                <td>Remove</td>
+                <td>Image</td>
+                <td>Product</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Subtotal</td>
+            </tr>
+        </thead>
+        @if (Model is null)
+        {
+            <tbody>
+            </tbody>
+        }
+        else
+        {
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    total = total + (item.Count * item.Price);
+                    <tr>
+                        <td><a asp-controller="Product" asp-action="RemoveCart" asp-route-id="@item.Id"><i class="far fa-times-circle"></i></a></td>
+                        <td><img src="~/assets/img/products/@item.ImageName" alt=""></td>
+                        <td>@item.ProductName</td>
+                        <td>$@item.Price</td>
+                        <td>@item.Count</td>
+                        <td>$@(item.Count * item.Price)</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</section>
+
+<section id="cart-add" class="section-p1">
+    <div id="coupon">
+        <h3>Apply Coupon</h3>
+        <div>
+            <input type="text" placeholder="Enter Your Coupon">
+            <button class="normal">Apply</button>
+        </div>
+    </div>
+    <div id="subtotal">
+        <h3>Cart Totals</h3>
+        <table>
+            <tr>
+                <td>Cart Subtotal</td>
+                <td>$@total</td>
+            </tr>
+            <tr>
+                <td>Shipping</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>$@total</strong></td>
+            </tr>
+        </table>
+        <button class="normal">Proceed to checkout</button>
+    </div>
+</section>

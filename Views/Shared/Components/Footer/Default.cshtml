@@ -1,0 +1,18 @@
+﻿@model Dictionary<string,Setting>
+<div class="col">
+    <img class="logo2" src="~/assets/@Model["Logo"].Value" alt="">
+    <h4>Contact</h4>
+    <p> <strong>Adress:</strong> @Model["Address"].Value</p>
+    <p> <strong>Phone:</strong>@Model["Phone"].Value</p>
+    <p> <strong>Hours:</strong>@Model["Hours"].Value</p>
+    <div class="follow">
+        <h4>Follow us</h4>
+        <div class="icon">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-pinterest-p"></i>
+            <i class="fa-brands fa-youtube"></i>
+        </div>
+    </div>
+</div>

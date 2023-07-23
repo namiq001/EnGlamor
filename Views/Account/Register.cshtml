@@ -1,0 +1,99 @@
+﻿@model RegisterVM
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnGlamor</title>
+    <link rel="icon" href="img/logo-no-background.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.2/css/font-awesome.css" integrity="sha512-FbCB35B2LfIq25LLPlR+pWejoW1X5uXXZ3XdjiXVtixww/x7KA7k2jZiUIWC+n9qetLeOgCyyR+UKhwLbZLmaQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/assets/css/login.css">
+
+
+</head>
+
+<body>
+
+
+    <section class="container forms">
+        <div class="form signup">
+            <div class="form-content">
+                <header>SignUp</header>
+                <form method="post">
+                    <div class="field input-field">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" placeholder="User Name" class="input">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="field input-field">
+                        <label asp-for="UserName"></label>
+                        <input asp-for="UserName" placeholder="User Name" class="input">
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+
+                    <div class="field input-field">
+                        <label asp-for="EmailAddress"></label>
+                        <input asp-for="EmailAddress" placeholder="E-mail" class="input">
+                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                    </div>
+
+                    <div class="field input-field">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" placeholder="Password" class="password">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+                    <div class="field input-field">
+                        <label asp-for="ConfirmPassword"></label>
+                        <input asp-for="ConfirmPassword" placeholder="Confirm Password" class="password">
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+
+
+
+                    <div class="field input-field">
+                        <button type="submit">Signup</button>
+                    </div>
+
+                </form>
+
+                <div class="form-link">
+                    <span>Already have an account?  <a asp-controller="Account" asp-action="Login" class="login-link">Login</a></span>
+                </div>
+
+            </div>
+            <div class="line">
+            </div>
+            <div class="media-options">
+                <a href="#" class="field facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <span>Login width Facebook </span>
+                </a>
+            </div>
+            <div class="media-options">
+                <a href="#" class="field google">
+                    <img src="~/assets/img/google.png" alt="" class="google-img">
+                    <span>Login width Google </span>
+                </a>
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+
+</body>
+
+</html>

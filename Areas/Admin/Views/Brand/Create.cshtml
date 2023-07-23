@@ -1,0 +1,10 @@
+﻿@model CreateBrandVM
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="BrandName"></label>
+        <input asp-for="BrandName" class="form-control form-control-user"
+               placeholder="BrandName">
+        <span asp-validation-for="BrandName"></span>
+    </div>
+    <div class="text-center"><button type="submit" class="btn btn-info" style="margin-top: 30px;">Create Brand</button></div>
+</form>

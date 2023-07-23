@@ -1,0 +1,257 @@
+﻿@model ProductDetailVM
+@{
+    int count = 0;
+    int TotalRaiting = 0;
+    int Avarange = 0;
+}
+<section id="prodetails" class="section-p1">
+    <div class="single-pro-image">
+        <img src="~/assets/img/products/@Model.product.ProductImageUrl" width="100%" id="MainImg" alt="">
+        <div class="small-img-group">
+            <div class="small-img-col">
+                <img src="~/assets/img/products/n2.jpg" width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="~/assets/img/products/n3.jpg" width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="~/assets/img/products/n4.jpg" width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="~/assets/img/products/n5.jpg" width="100%" class="small-img" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="single-pro-details">
+        <h6>Home / @Model.product.Catagories.CatagoryName</h6>
+        <h4>@Model.product.ProductName</h4>
+        <h2>$@Model.product.ProductPrice</h2>
+        <select>
+            <option> Select Size</option>
+            <option> XL</option>
+            <option> XXl</option>
+            <option> Small</option>
+            <option> Large</option>
+        </select>
+        <div class="countcard">
+            <button id="decreaseButton">-</button>
+            <span id="countDisplay">0</span>
+            <button id="increaseButton">+</button>
+            <a class="add-to-basket" asp-controller="Product" asp-action="AddCart" asp-route-id="@Model.product.Id">Add To Card</a>
+        </div>
+        <div class="product-card-color">
+            <div class="product-card__color__content active-color">
+                <div style="background-color: rgb(251, 255, 0);" class="product-card__color--box">
+                </div>
+            </div>
+            <div class="product-card__color__content">
+                <div style="background-color: rgb(255, 0, 212);" class="product-card__color--box">
+                </div>
+            </div>
+            <div class="product-card__color__content">
+                <div style="background-color: rgb(5, 255, 255);" class="product-card__color--box">
+                </div>
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Product Details
+                </div>
+                <div class="accordion-content">
+
+                    @Model.product.ProductDetail
+
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Additional Information
+                </div>
+                <div class="accordion-content">
+
+                    @Model.product.ProductInformation
+
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Customer Reviews
+                </div>
+                <div class="accordion-content">
+
+                    @Model.product.ProductReviews
+
+                </div>
+            </div>
+        </div>
+
+        <h4>Product Details</h4>
+        <p>
+            @Model.product.ProductDetail
+        </p>
+        <div class="pro" id="product-card">
+            <div class="des">
+                @if (Model.product.ProductComments is null)
+                {
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+
+                }
+                else
+                {
+                    @foreach (ProductComment item in Model.product.ProductComments)
+                    {
+                        TotalRaiting += item.Rating;
+                        count++;
+                    }
+
+
+                    Avarange = (int)Math.Ceiling((double)TotalRaiting / count);
+
+
+                    for (int i = 0; i < Avarange; i++)
+                    {
+                        <i class="fas fa-star"></i>
+                    }
+                    for (int i = 0; i < (5 - Avarange); i++)
+                    {
+                        <i class="far fa-star"></i>
+                    }
+                }
+
+
+                <span class="ml-5">
+
+                    @if (Model.product.ProductComments is null)
+                    {
+                        <span>0</span>
+
+                    }
+                    else
+                    {
+                        @foreach (ProductComment item in Model.product.ProductComments)
+                        {
+                            TotalRaiting += item.Rating;
+                            count++;
+                        }
+
+
+                        Avarange = (int)Math.Ceiling((double)TotalRaiting / count);
+
+                        @Avarange
+                    }
+                </span>
+                <form asp-action="ProductComment" asp-controller="product" method="post" class="p-5 bg-light">
+
+                    <div class="form-group">
+                        <label asp-for="productComment.Rating">Your rating:</label>
+                        <select asp-for="productComment.Rating" style="width: 200px;">
+                            <option value="5">5/5</option>
+                            <option value="4">4/5</option>
+                            <option value="3">3/5</option>
+                            <option value="2">2/5</option>
+                            <option value="1">1/5</option>
+                        </select>
+                        <span asp-validation-for="productComment.Rating" class="text-danger"></span>
+                    </div>
+                    <input type="hidden" asp-for="productComment.ProductId" value="@Model.product.Id" />
+                    <input type="hidden" asp-for="productComment.AppUserId" value="@Model.product.Id" />
+
+                    <div class="form-group">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
+                        }
+                        else
+                        {
+                            <a asp-action="login" asp-controller="account" class="btn btn-primary">Login to write a comment</a>
+                        }
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Praduct part2 end -->
+<section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>Sign Up For NewsLetters</h4>
+        <p>Get E-mail updates about our latest shop and and <span> special offers.</span></p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="Your email address">
+        <button class="normal">Sign Up</button>
+    </div>
+</section>
+<script>
+
+    let productCards = document.querySelectorAll(".product-card")
+    function setActiveColor(event) {
+        let parent = event.currenTarget.closest(".product-card")
+        let colorContents = parent.querySelectorAll(".product-card__color__content");
+
+
+        for (let i = 0; i < colorContents.length; i++) {
+            colorContents[i].classlist.remove("active-color")
+        }
+        event.currentTarget.classList.add("active-color")
+    }
+
+    for (let i = 0; i < productCards.length; i++) {
+        var colorContents = productCards[i].querySelectorAll(".product-card__color__content");
+
+        for (let j = 0; j < colorContents.length; j++) {
+            colorContents[j].addEventListener("click", setActiveColor)
+        }
+    }
+
+
+    const accordionItems = document.querySelectorAll('.accordion-item');
+
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+
+        header.addEventListener('click', () => {
+            item.classList.toggle('active');
+
+            const content = item.querySelector('.accordion-content');
+            if (item.classList.contains('active')) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            } else {
+                content.style.maxHeight = '0';
+            }
+        });
+    });
+
+    window.addEventListener("load", function () {
+        var loadingScreen = document.getElementById("loading-screen");
+        loadingScreen.style.display = "none";
+    });
+
+    var MainImg = document.getElementById("MainImg")
+    var smallimg = document.getElementsByClassName("small-img")
+
+    smallimg[0].onclick = function () {
+        MainImg.src = smallimg[0].src;
+    }
+    smallimg[1].onclick = function () {
+        MainImg.src = smallimg[1].src;
+    }
+    smallimg[2].onclick = function () {
+        MainImg.src = smallimg[2].src;
+    }
+    smallimg[3].onclick = function () {
+        MainImg.src = smallimg[3].src;
+    }
+</script>
+
+<script src="~/assets/script.js"></script>

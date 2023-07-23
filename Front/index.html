@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnGlamor</title>
+    <link rel="icon" href="img/logo-no-background.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p>Loading...</p>
+    </div>
+    <button id="chat-button"><i class="fa-solid fa-comments fa-fade"></i></button>
+
+    <div id="chat-popup">
+        <div id="chat-container">
+            <div id="chat-header">
+                <h3>Online Chat</h3>
+                <button id="close-button">&times;</button>
+            </div>
+            <div id="chat-body">
+                <ul id="message-list"></ul>
+            </div>
+            <div id="chat-footer">
+                <input type="text" id="message-input" placeholder="Write your message...">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </div>
+    <button id="scrollTopButton"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Header Start-->
+    <section id="header">
+        <a href="#"><img src="img/logo-no-background.png" class="logo" alt=""></a>
+        <div class="search-bar">
+            <form id="form" action="#">
+                <label id="search-label" for="search">
+                    <span>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input id="search" type="text" placeholder="Search Anything..." aria-label="Search"
+                        autocomplete="off">
+                </label>
+            </form>
+        </div>
+        <div>
+
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-user"><details>
+                    <summary><i class="fa-solid fa-user"></i></summary>
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Register</a>
+                </details></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar"  class="fa-solid fa-bars"></i>
+        </div>
+    </section>
+    <!-- Header end -->
+
+
+    <!-- Hero start -->
+    <section id="hero">
+        <h4>Trade-in-offer</h4>
+        <h2>Super value deals</h2>
+        <h1>On all products</h1>
+        <p>Save more width & up to 70% off!</p>
+        <button>Shop Now</button>
+    </section>
+    <!-- Hero End -->
+
+    <!-- Feature start -->
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <img src="img/features/f1.png" alt="">
+            <h6>Free Shipping </h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/features/f2.png" alt="">
+            <h6>Online Order </h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/features/f3.png" alt="">
+            <h6>Save Money </h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/features/f4.png" alt="">
+            <h6>Promations </h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/features/f5.png" alt="">
+            <h6>Happy Sell </h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/features/f6.png" alt="">
+            <h6>7/24 Support</h6>
+        </div>
+    </section>
+    <!-- Feature end -->
+
+
+    <!-- Product Start -->
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Summer Collection New Morden Design</p>
+        <div class="pro-container">
+            <div class="pro " onclick="window.location.href='sproduct.html';" id="product-card">
+                <img id="product-image" src="img/products/f1.jpg" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$158</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';"  id="product-card">
+                <img  id="product-image" src="img/products/f2.jpg" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon Astronaut T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$200</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping "></i></a>
+                <!-- <a href="#" id="cart" class="cart1"><i class="fa-solid fa-arrow-right-arrow-left"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';"  id="product-card">
+                <img   id="product-image" src="img/products/f3.jpg" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5> Astronaut T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';"  id="product-card">
+                <img  id="product-image" src="img/products/f4.jpg" alt="">
+                <div class="des">
+                    <span>Zara</span>
+                    <h5>Cartoon  T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$90</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';"   id="product-card">
+                <img  id="product-image" src="img/products/f5.jpg" alt="">
+                <div class="des">
+                    <span>Emporio Armani</span>
+                    <h5>Cartoon Astronaut T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$210</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';"   id="product-card">
+                <img  id="product-image" src="img/products/f6.jpg" alt="">
+                <div class="des">
+                    <span>Lacoste</span>
+                    <h5>Cartoon  T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$180</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+            <div class="pro"  onclick="window.location.href='sproduct.html';"  id="product-card">
+                <img  id="product-image" src="img/products/f7.jpg" alt="">
+                <div class="des">
+                    <span>Zara</span>
+                    <h5>Cartoon Astronaut T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$325</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';"  id="product-card">
+                <img  id="product-image" src="img/products/f8.jpg" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon Astronaut T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+        </div>
+    </section>
+    <!-- Product end -->
+
+
+    <!-- Banner Start -->
+    <section id="banner" class="section-m1">
+        <h4>Repair Services</h4>
+        <h2>Up to <span>70% off</span> - All t-Shirts & Accessories</h2>
+        <button class="normal">Explore More</button>
+    </section>
+    <!-- Banner end -->
+
+    <!-- Praduct part2 start -->
+    <section id="product1" class="section-p1">
+        <h2>New Arrivals</h2>
+        <p>Summer Collection New Morden Design</p>
+        <div class="pro-container">
+            <div class="pro" onclick="window.location.href='sproduct.html';"  id="product-card">
+                <img  id="product-image" src="img/products/n1.jpg" alt="">
+                <div class="des">
+                    <span>Emporio Armani</span>
+                    <h5>Cartoon Astronaut </h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$128</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';"   id="product-card">
+                <img  id="product-image" src="img/products/n2.jpg" alt="">
+                <div class="des">
+                    <span>Emporio Armani</span>
+                    <h5>Cartoon  T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$218</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';"   id="product-card">
+                <img  id="product-image" src="img/products/n3.jpg" alt="">
+                <div class="des">
+                    <span>Zara</span>
+                    <h5> T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$60</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';"  id="product-card">
+                <img  id="product-image" src="img/products/n4.jpg" alt="">
+                <div class="des">
+                    <span>Lacoste</span>
+                    <h5>Cartoon </h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$100</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';"  id="product-card">
+                <img  id="product-image" src="img/products/n5.jpg" alt="">
+                <div class="des">
+                    <span>Zara</span>
+                    <h5> Cartoon Astronaut</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$58</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';"   id="product-card">
+                <img  id="product-image" src="img/products/n6.jpg" alt="">
+                <div class="des">
+                    <span>Zara</span>
+                    <h5>Cartoon </h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';"  id="product-card">
+                <img  id="product-image" src="img/products/n7.jpg" alt="">
+                <div class="des">
+                    <span>Zara</span>
+                    <h5>Cartoon Astronaut T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$48</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';"   id="product-card">
+                <img  id="product-image" src="img/products/n8.jpg" alt="">
+                <div class="des">
+                    <span>zara</span>
+                    <h5>Cartoon Astronaut T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+            </div>
+        </div>
+    </section>
+    <!-- Praduct part2 end -->
+
+    <!-- sm banner start -->
+    <section id="sm-banner" class="section-p1">
+        <div class="banner-box">
+            <h4>crazy deals</h4>
+            <h2>buy 1 get 1 free</h2>
+            <span>The best classic dress is on sale at cara</span>
+            <button class="white">Learn More</button>
+        </div>
+        <div class="banner-box banner-box2">
+            <h4>spring/summer</h4>
+            <h2>upcomming season</h2>
+            <span>The best classic dress is on sale at cara</span>
+            <button class="white">Collection</button>
+        </div>
+    </section>
+    <!-- sm banner end -->
+
+    <!-- section3 start -->
+    <section id="banner3">
+        <div class="banner-box ">
+            <h2>SEASONAL SALE</h2>
+            <h3>Winter Collection -50% OFF</h3>
+        </div>
+        <div class="banner-box banner-box2">
+            <h2>NEW FOOTWEAR COLLECTION</h2>
+            <h3>Spring / Summer 2023</h3>
+        </div>
+        <div class="banner-box banner-box3">
+            <h2>T-SHIRTS</h2>
+            <h3>New Trendy Prints</h3>
+        </div>
+    </section>
+    <!-- section3 end -->
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For NewsLetters</h4>
+            <p>Get E-mail updates about our latest shop and and <span> special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+    <!-- footer start -->
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo2"   src="img/logo-no-background.png" alt="">
+            <h4>Contact</h4>
+            <p> <strong>Adress:</strong> 562 Welligington Rood. Street 32. San Francisco</p>
+            <p> <strong>Phone:</strong>+01 222 365 /(+91) 01 2345 6789</p>
+            <p> <strong>Hours:</strong>10:00 - 18:00 , Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-pinterest-p"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact us</a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In </a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="img/pay/pay.png" alt="">
+        </div>
+        <div class="copyright">
+            <p>2021, P138-etc HTML CSS Ecommerce Template</p>
+        </div>
+    </footer>
+    <!-- footer end -->
+    <script>
+        window.addEventListener("load", function() {
+  var loadingScreen = document.getElementById("loading-screen");
+  loadingScreen.style.display = "none";
+});
+
+
+ var chatButton = document.getElementById("chat-button");
+ var chatPopup = document.getElementById("chat-popup");
+ var closeButton = document.getElementById("close-button");
+ var messageInput = document.getElementById("message-input");
+ var sendButton = document.getElementById("send-button");
+var messageList = document.getElementById("message-list");
+
+chatButton.addEventListener("click", function() {
+    chatPopup.style.display = "block";
+});
+
+closeButton.addEventListener("click", function() {
+    chatPopup.style.display = "none";
+ });
+
+sendButton.addEventListener("click", function() {
+    var message = messageInput.value;
+    if (message !== "") {
+        var listItem = document.createElement("li");
+        listItem.textContent = message;
+        messageList.appendChild(listItem);
+        messageInput.value = "";
+     }
+});
+
+    </script>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

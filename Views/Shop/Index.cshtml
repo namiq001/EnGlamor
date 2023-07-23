@@ -1,0 +1,160 @@
+﻿@model SearchVM
+<!-- Hero start -->
+<section id="page-header">
+    <h2>#ourproducts</h2>
+    <p>Save more width coupons & up to 70% off!</p>
+</section>
+<!-- Hero End -->
+<section id="shop">
+    <div class="container">
+        <div class="shop-content">
+            <div class="product-filters-content">
+                <div class="product-filters-part-one">
+                    <ul type="none" class="product-filters-part-one-content">
+                        <li class="product-filters-part-one-list">
+                            <a asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="product-filters-part-one-list">
+                            /
+                        </li>
+                        <li class="product-filters-part-one-list">
+                            <a asp-controller="Shop" asp-action="Index">Shop</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="product-filters-two-content">
+                    <div class="product-filters-head">
+                        <h2>Filters</h2>
+                        <button id="clear-btn">Clear All</button>
+                    </div>
+                    <div class="product-filters-choose">
+                    </div>
+                    <div class="product-filters-category">
+                        <a asp-action="Index" asp-controller="Shop">
+                            <h3>All Category</h3>
+                        </a>
+                        @foreach (Catagory item in Model.Catagories)
+                        {
+                            <label for="product-filters-category-woman">
+                                <input type="checkbox" id="product-filters-brands-shovia">
+                                <a asp-action="Index" asp-controller="Shop" asp-route-catagoryId="@item.Id">
+                                    <span>@item.CatagoryName</span>
+                                </a>
+                            </label>
+                        }
+                    </div>
+                    <div class="product-filters-brands">
+                        <a asp-action="Index" asp-controller="Shop">
+                            <h3>All Brands</h3>
+                        </a>
+                        @foreach (Brand item in Model.Brands)
+                        {
+                            <label for="product-filters-brands-shovia">
+                                <input type="checkbox" id="product-filters-brands-shovia">
+                                <a asp-action="Index" asp-controller="Shop" asp-route-brandId="@item.Id">
+                                    <span>@item.BrandName</span>
+                                </a>
+                            </label>
+                        }
+                    </div>
+                    <div class="product-filters-price">
+                        <h3>Price</h3>
+                        <label for="product-filters-price-under-$50">
+                            <input type="checkbox" id="product-filters-price-under-$50">
+                            <span>Under $50</span>
+                        </label>
+                        <label for="product-filters-price-$50-to-$100">
+                            <input type="checkbox" id="product-filters-price-$50-to-$100">
+                            <span>$50 to $100</span>
+                        </label>
+                        <label for="product-filters-price-$100-to-$150">
+                            <input type="checkbox" id="product-filters-price-$100-to-$150">
+                            <span>$100 to $150</span>
+                        </label>
+                        <label for="product-filters-price-$150-to-$200">
+                            <input type="checkbox" id="product-filters-price-$150-to-$200">
+                            <span>$150 to $200</span>
+                        </label>
+                        <label for="product-filters-price-$200-to-$300">
+                            <input type="checkbox" id="product-filters-price-$200-to-$300">
+                            <span>$200 to $300</span>
+                        </label>
+                        <label for="product-filters-price-$300-to-$500">
+                            <input type="checkbox" id="product-filters-price-$300-to-$500">
+                            <span>$300 to $500</span>
+                        </label>
+                        <label for="product-filters-price-$500-to-$1000">
+                            <input type="checkbox" id="product-filters-price-$500-to-$1000">
+                            <span>$500 to $1000</span>
+                        </label>
+                        <label for="product-filters-price-over-to-$1000">
+                            <input type="checkbox" id="product-filters-price-over-to-$100">
+                            <span>Over to $1000</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Start -->
+            <div id="product1" class="section-p1">
+                <div id="main-content">
+                    <form asp-action="Index" asp-controller="Shop">
+                        <div class="input-group">
+                            <div class="form-outline">
+                                <input type="text" name="search" placeholder="Search"  style="border-radius: 10px;padding: 8px 12px;width: 300px;" />
+                                <button type="submit" style="border: 1px solid #ccc; padding: 5px 10px; border-radius: 5px;">
+                                    <span class="fas fa-search"></span>
+                                </button>
+                            </div>
+                            
+                        </div>
+                    </form>
+                    <h2>New Products</h2>
+                    <div id="product-list">
+                        <div class="pro-container">
+                            @foreach (Product item in Model.Products)
+                            {
+                                <div class="pro" >
+                                    <a asp-controller="Product" asp-action="ViewProduct" asp-route-id="@item.Id"><img id="product-image" src="~/assets/img/products/@item.ProductImageUrl" alt=""></a>
+                                    <div class="des">
+                                        <span>@item.Brands.BrandName</span>
+                                        <h5>@item.ProductName</h5>
+                                        <div class="star">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <h4>$@item.ProductPrice</h4>
+                                    </div>
+                                    <a class="add-to-basket" asp-controller="Product" asp-action="AddCart" asp-route-id="@item.Id" id="cart"><i class="fa-solid fa-cart-shopping  "></i></a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Praduct end -->
+
+        </div>
+    </div>
+</section>
+<!-- pagination start -->
+<section id="pagination" class="section-p1">
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+</section>
+<!-- pagination end -->
+
+<section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>Sign Up For NewsLetters</h4>
+        <p>Get E-mail updates about our latest shop and and <span> special offers.</span></p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="Your email address">
+        <button class="normal">Sign Up</button>
+    </div>
+</section>

@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnGlamor</title>
+    <link rel="icon" href="~/assets/img/logo-no-background.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/assets/css/style.css">
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p>Loading...</p>
+    </div>
+    <button id="chat-button"><i class="fa-solid fa-comments fa-fade"></i></button>
+
+    <div id="chat-popup">
+        <div id="chat-container">
+            <div id="chat-header">
+                <h3>Online Chat</h3>
+                <button id="close-button">&times;</button>
+            </div>
+            <div id="chat-body">
+                <ul id="message-list"></ul>
+            </div>
+            <div id="chat-footer">
+                <input type="text" id="message-input" placeholder="Write your message...">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </div>
+    <button id="scrollTopButton"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Header Start-->
+    <section id="header">
+        @await Component.InvokeAsync("Header")
+        <div class="search-bar">
+            <form id="form" action="#">
+                <label id="search-label" for="search">
+                    <span>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input id="search" type="text" placeholder="Search Anything..." aria-label="Search"
+                           autocomplete="off">
+                </label>
+            </form>
+        </div>
+        <div>
+
+            <ul id="navbar">
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Shop" asp-action="Index">Shop</a></li>
+                <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+                <li><a asp-controller="About" asp-action="Index">About</a></li>
+                <li><a asp-controller="Cantact" asp-action="Index">Contact</a></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>
+                        @User.Identity.Name
+                    </li>
+                    <li>
+                        <a asp-controller="Account" asp-action="Logout">Sign Out</a>
+                    </li>
+                }
+                else
+                {
+                    <li id="lg-user">
+                        <details>
+                            <summary><i class="fa-solid fa-user"></i></summary>
+                            <a asp-controller="Account" asp-action="Login">Login</a>
+                            <a asp-controller="Account" asp-action="Register">Register</a>
+                        </details>
+                    </li>
+                }
+                <li id="lg-bag"><a asp-controller="Product" asp-action="GetCarts"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a asp-controller="Product" asp-action="GetCarts"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fa-solid fa-bars"></i>
+        </div>
+    </section>
+    <!-- Header end -->
+            @RenderBody()
+            <!-- footer start -->
+            <footer class="section-p1">
+                @await Component.InvokeAsync("Footer")
+                <div class="col">
+                    <h4>About</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Delivery Information</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Contact us</a>
+                </div>
+                <div class="col">
+                    <h4>My Account</h4>
+                    <a href="#">Sign In </a>
+                    <a href="#">View Cart</a>
+                    <a href="#">My Wishlist</a>
+                    <a href="#">Track My Order</a>
+                    <a href="#">Help</a>
+                </div>
+                <div class="col install">
+                    <h4>Install App</h4>
+                    <p>From App Store or Google Play</p>
+                    <div class="row">
+                        <img src="~/assets/img/pay/app.jpg" alt="">
+                        <img src="~/assets/img/pay/play.jpg" alt="">
+                    </div>
+                    <p>Secured Payment Gateways</p>
+                    <img src="~/assets/img/pay/pay.png" alt="">
+                </div>
+                <div class="copyright">
+                    <p>2021, P138-etc HTML CSS Ecommerce Template</p>
+                </div>
+            </footer>
+            <!-- footer end -->
+            <script>
+                window.addEventListener("load", function () {
+                    var loadingScreen = document.getElementById("loading-screen");
+                    loadingScreen.style.display = "none";
+                });
+
+
+                var chatButton = document.getElementById("chat-button");
+                var chatPopup = document.getElementById("chat-popup");
+                var closeButton = document.getElementById("close-button");
+                var messageInput = document.getElementById("message-input");
+                var sendButton = document.getElementById("send-button");
+                var messageList = document.getElementById("message-list");
+
+                chatButton.addEventListener("click", function () {
+                    chatPopup.style.display = "block";
+                });
+
+                closeButton.addEventListener("click", function () {
+                    chatPopup.style.display = "none";
+                });
+
+                sendButton.addEventListener("click", function () {
+                    var message = messageInput.value;
+                    if (message !== "") {
+                        var listItem = document.createElement("li");
+                        listItem.textContent = message;
+                        messageList.appendChild(listItem);
+                        messageInput.value = "";
+                    }
+                });
+
+            </script>
+
+    <script src="~/assets/js/script.js"></script>
+    <script src="~/assets/js/main.js"></script>
+</body>
+
+</html>

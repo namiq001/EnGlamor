@@ -1,0 +1,56 @@
+﻿@model EditProductVM
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="ProductName"></label>
+        <input asp-for="ProductName" class="form-control form-control-user"
+               placeholder="ProductName">
+        <span asp-validation-for="ProductName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ProductDetail"></label>
+        <input asp-for="ProductDetail" class="form-control form-control-user"
+               placeholder="ProductDetail">
+        <span asp-validation-for="ProductDetail"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ProductInformation"></label>
+        <input asp-for="ProductInformation" class="form-control form-control-user"
+               placeholder="ProductInformation">
+        <span asp-validation-for="ProductInformation"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ProductReviews"></label>
+        <input asp-for="ProductReviews" class="form-control form-control-user"
+               placeholder="ProductReviews">
+        <span asp-validation-for="ProductReviews"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ProductPrice"></label>
+        <input asp-for="ProductPrice" class="form-control form-control-user"
+               placeholder="ProductPrice">
+        <span asp-validation-for="ProductPrice"></span>
+    </div>
+    <div class="col-lg-4 col-md-6 form-group mt-3">
+        <select class="form-select shadow-none p-0 border-0 form-control-line" asp-for="CatagoryId">
+            @foreach (var item in Model.Catagories)
+            {
+                <option value="@item.Id">@item.CatagoryName</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-4 col-md-6 form-group mt-3">
+        <select class="form-select shadow-none p-0 border-0 form-control-line" asp-for="BrandId">
+            @foreach (var item in Model.Brands)
+            {
+                <option value="@item.Id">@item.BrandName</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image"></label>
+        <input asp-for="Image" class="form-control form-control-user"
+               placeholder="Icon String">
+        <span asp-validation-for="Image"></span>
+    </div>
+    <div class="text-center"><button type="submit" class="btn btn-info" style="margin-top: 30px;">Edit Product</button></div>
+</form>

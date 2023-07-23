@@ -1,0 +1,10 @@
+﻿@model CreateCatagoryVM
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="CatagoryName"></label>
+        <input asp-for="CatagoryName" class="form-control form-control-user"
+               placeholder="CatagoryName">
+        <span asp-validation-for="CatagoryName"></span>
+    </div>
+    <div class="text-center"><button type="submit" class="btn btn-info" style="margin-top: 30px;">Create Catagory</button></div>
+</form>

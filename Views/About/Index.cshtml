@@ -1,0 +1,57 @@
+﻿@model List<Icon>
+
+<!-- Hero start -->
+<section id="page-header" class="about-header">
+    <h2>#KnowUs</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+</section>
+<!-- Hero End -->
+<section id="about-head" class="section-p1">
+    <img src="~/assets/img/about/a6.jpg" alt="">
+    <div>
+        <h2>Who We Are?</h2>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, cum dicta. Omnis excepturi hic ipsum,
+            quam suscipit ullam magnam impedit ex error eveniet atque voluptas nam illum dolor. Nihil distinctio
+            aliquam, cupiditate atque reprehenderit, exercitationem non iure nesciunt dignissimos aperiam, inventore
+            facere sint nulla. Expedita ipsum earum nisi fuga, nihil, dignissimos optio aperiam non quibusdam et
+            perferendis, debitis modi? Incidunt molestias eius vero placeat perspiciatis.
+        </p>
+
+        <abbr title="">Create stunning images with as much or as little control as you like thanks to a chocie of Basic and Creative modes.</abbr>
+
+        <br><br>
+        <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">Create stunning images with as musch or as little control as you like thanks to a choice of Basic and Creative modes.</marquee>
+    </div>
+</section>
+
+<section id="about-app" class="section-p1">
+    <h1>Download our <a href="#">App</a></h1>
+    <div class="video">
+        <video autoplay muted loop src="~/assets/img/about/1.mp4"></video>
+    </div>
+</section>
+
+
+<!-- Feature start -->
+<section id="feature" class="section-p1">
+    @foreach (Icon item in Model)
+    {
+        <div class="fe-box">
+            <img src="~/assets/img/features/@item.IconImageUrl" alt="">
+            <h6>@item.Title </h6>
+        </div>
+    }
+</section>
+<!-- Feature end -->
+
+<section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>Sign Up For NewsLetters</h4>
+        <p>Get E-mail updates about our latest shop and and <span> special offers.</span></p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="Your email address">
+        <button class="normal">Sign Up</button>
+    </div>
+</section>

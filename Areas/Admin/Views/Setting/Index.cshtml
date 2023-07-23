@@ -1,0 +1,47 @@
+﻿@model List<Setting>
+@{
+    int count = 0;
+}
+<!-- Bootstrap Dark Table -->
+<div class="card">
+    <div class="row">
+        <div class="col-6">
+            <h5 class="card-header">Setting Table</h5>
+        </div>
+    </div>
+
+
+    <div class="table-responsive text-nowrap">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Key</th>
+                    <th>Value</th>
+                    <th>Setting</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (Setting item in Model)
+                {
+                    <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@(++count)</strong></td>
+                        <td>@item.Key</td>
+                        <td>@item.Value</td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <form class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id" method="get"><i class="bx bx-edit-alt me-1"></i> <button style="border: none; outline: none; background: none;">Edit</button></form>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--/ Bootstrap Dark Table -->
